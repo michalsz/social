@@ -8,6 +8,8 @@ require File.join(File.dirname(__FILE__), 'index.rb')
 [Social::Main,Social::Admin].each do |controller|
   controller.set :environment, :development
 end
+
+set :logging, true
 # Mount our Main class with a base url of /
 map "/" do
   run Social::Main

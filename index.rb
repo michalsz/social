@@ -1,4 +1,5 @@
 require 'sinatra'
+Dir.glob('./{models}/*.rb').each { |file| require file }
 
 module Social
   class SocialBase < Sinatra::Base
@@ -10,14 +11,14 @@ module Social
   class Main < SocialBase
     set :views, File.join(File.dirname(__FILE__),'views','main')
     get '/' do
-      erb :index
+      haml :index
     end
   end
 
   class Admin < SocialBase
     set :views, File.join(File.dirname(__FILE__),'views','admin')
     get '/' do
-      erb :index
+      haml :index
     end
   end
 end
